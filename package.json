@@ -1,0 +1,33 @@
+{
+  "name": "bfgs-algorithm",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ou.Yancey",
+    "email": "ou.yancey@gmail.com"
+  },
+  "description": "Broyden–Fletcher–Goldfarb–Shanno algorithm is an iterative method for solving unconstrained nonlinear optimization problems.",
+  "main": "./lib/BFGSAlgorithm.js",
+  "files": [
+    "dist/runge-kutta-4.min.js",
+    "lib"
+  ],
+  "scripts": {
+    "build": "webpack",
+    "test": "jasmine",
+    "preversion": "npm test",
+    "version": "npm run build && git add -A dist"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OuYancey/bfgs-algorithm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OuYancey/bfgs-algorithm/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "webpack": "^1.13.1"
+  }
+}
