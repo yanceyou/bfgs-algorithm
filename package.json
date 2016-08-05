@@ -8,7 +8,6 @@
   "description": "Broyden–Fletcher–Goldfarb–Shanno algorithm is an iterative method for solving unconstrained nonlinear optimization problems.",
   "main": "./lib/BFGSAlgorithm.js",
   "files": [
-    "dist/runge-kutta-4.min.js",
     "lib"
   ],
   "scripts": {
@@ -29,5 +28,8 @@
   "devDependencies": {
     "jasmine": "^2.4.1",
     "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "minimize-golden-section-1d": "^1.0.3"
   }
 }
