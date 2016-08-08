@@ -16,7 +16,11 @@
     "preversion": "npm test",
     "version": "npm run build && git add -A dist"
   },
-  "keywords": [],
+  "keywords": [
+    "bfgs algorithm",
+    "numerical optimization",
+    "Quasi Newton"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OuYancey/bfgs-algorithm.git"
