@@ -1,6 +1,32 @@
 var BFGSAlgorithm = require('../lib/BFGSAlgorithm.js')
 
+var customMatchers = {
+    toAlmostEqual: function(util, customEqualityTesters) {
+        return {
+            compare: function(actual, expected) {
+                if (expected === undefined) {
+                    expected = ''
+                }
+
+                var result = {}
+
+                result.pass =  Math.abs(actual - expected) / Math.abs(expected) < 1E-6
+
+                if (result.pass) {
+                    result.message = "Expected " + actual + " not to almost equal " + expected
+                }
+
+                return result
+            }
+        }
+    }
+}
+
 describe("BFGSAlgorithm", function() {
+    beforeEach(function() {
+        jasmine.addMatchers(customMatchers);
+    })
+
     it("cacul", function() {
         var f = function(x) {
             return 100 * (x[1] - x[0] * x[0]) * (x[1] - x[0] * x[0]) + (1 - x[0]) * (1 - x[0])
@@ -21,24 +47,6 @@ describe("BFGSAlgorithm", function() {
         var result1 = bfgs1.run()
         var result2 = bfgs2.run()
 
-        // ATTENTIONS: I change the source of jasmine-core, add this method
-        // jasmine-core version: 2.4.1
-        // L87:
-        //  'toAlmostEqual',
-        // 
-        // L2878: 
-        // getJasmineRequireObj().toAlmostEqual = function() {
-        //   function toAlmostEqual() {
-        //     return {
-        //       compare: function(actual, expected) {
-        //         return {
-        //           pass: Math.abs(actual - expected) / Math.abs(expected) < 1E-6
-        //         };
-        //       }
-        //     };
-        //   }
-        //   return toAlmostEqual;
-        // };
         expect(result1.x[0]).toAlmostEqual(1)
         expect(result1.x[1]).toAlmostEqual(1)
         expect(result2.x[0]).toAlmostEqual(1)
@@ -66,24 +74,6 @@ describe("BFGSAlgorithm", function() {
         var result1 = bfgs1.run()
         var result2 = bfgs2.run()
 
-        // ATTENTIONS: I change the source of jasmine-core, add this method
-        // jasmine-core version: 2.4.1
-        // L87:
-        //  'toAlmostEqual',
-        // 
-        // L2878: 
-        // getJasmineRequireObj().toAlmostEqual = function() {
-        //   function toAlmostEqual() {
-        //     return {
-        //       compare: function(actual, expected) {
-        //         return {
-        //           pass: Math.abs(actual - expected) / Math.abs(expected) < 1E-6
-        //         };
-        //       }
-        //     };
-        //   }
-        //   return toAlmostEqual;
-        // };
         expect(result1.x[0]).toAlmostEqual(2.25)
         expect(result1.x[1]).toAlmostEqual(-4.75)
         expect(result2.x[0]).toAlmostEqual(2.25)
