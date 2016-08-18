@@ -27,7 +27,7 @@ describe("BFGSAlgorithm", function() {
         jasmine.addMatchers(customMatchers);
     })
 
-    it("cacul", function() {
+    it("calcul first", function() {
         var f = function(x) {
             return 100 * (x[1] - x[0] * x[0]) * (x[1] - x[0] * x[0]) + (1 - x[0]) * (1 - x[0])
         }
@@ -54,7 +54,7 @@ describe("BFGSAlgorithm", function() {
     })
 
 
-    it("cacul", function() {
+    it("calcul second", function() {
         var f = function(x) {
             return 3 * x[0] * x[0] + 2 * x[0] * x[1] + x[1] * x[1] - 4 * x[0] + 5 * x[1]      
         }
